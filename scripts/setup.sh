@@ -4,7 +4,7 @@
 truffle migrate --reset --network rinkeby
 
 # Verify Contracts on Etherscan
-truffle run verify ContractName --network rinkeby --license SPDX-License-Identifier
+truffle run verify Vesting --network rinkeby --license SPDX-License-Identifier
 
 # Flatten Contracts
-./node_modules/.bin/truffle-flattener contracts/ContractName.sol > flats/ContractName_flat.sol
+./node_modules/.bin/truffle-flattener contracts/Vesting.sol > flats/Vesting_flat.sol

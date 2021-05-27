@@ -1,14 +1,19 @@
 const MockERC20 = artifacts.require('MockERC20.sol');
-const ContractName = artifacts.require('ContractName.sol');
+const Vesting = artifacts.require('Vesting.sol');
 
 module.exports = async function(deployer) {
   
-  // Deploy Mock Tokens
-    const tokenA = await MockERC20.new('Token A', 'TKA', web3.utils.toWei('1000'));
-    const tokenB = await MockERC20.new('Token B', 'TKB', web3.utils.toWei('1000'));
+  // Deploy Mock Token and Vesting
+    const token = await MockERC20.new('Token', 'TK', web3.utils.toWei('1000'));
+    const Vesting = await deployer.deploy(Vesting);
+}
 
-  // Deploy ContractName and Make Owner
-    const contractName = await deployer.deploy(ContractName);
-    await tokenA.transferOwnership(contractName.address);
-    await tokenB.transferOwnership(contractName.address);
+const Vesting = artifacts.require('Vesting.sol');
+
+module.exports = async function(deployer) {
+
+  // Deploy Vesting
+  const Vesting = await deployer.deploy(
+    Vesting
+    );
 }
